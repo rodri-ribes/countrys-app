@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 1rem;
+}
+
+.Container:hover{
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 15px yellow;
+}
+
+.Container_name{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
+    text-shadow: -3px 2px 9px black;
+    text-decoration: none;
+    color: black;
+}
+
+.Container_continent{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.Container_img{
+    width: 200px;
+    border: 1px solid black;
+}
+

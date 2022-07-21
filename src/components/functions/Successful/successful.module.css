@@ -1,0 +1,40 @@
+.Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.ContainerDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 500px;
+    border-radius: 5px;
+}
+
+.ContainerDiv h3{
+    font-family: lucida sans;
+    color: white;
+}
+
+.ContainerDiv img{
+    width: 70px;
+    margin-left: 1rem;
+}
+
+@media screen and (max-width: 968px){
+    .ContainerDiv{
+        width: 90%;
+    }
+
+    .ContainerDiv h3{
+        font-size: 1.0rem;
+    }
+
+    .ContainerDiv img{
+        width: 3rem;
+    }
+}

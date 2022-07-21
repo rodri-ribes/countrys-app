@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Tajawal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
+
+.Container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem auto;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 800px;
+    height: auto;
+}
+
+
+.ContainInputs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+}
+
+.InputsLabels{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.InputsLabels label{
+    align-self: flex-start;
+    margin: 10px 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.InputsLabels input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    background-color: #d6d4d4;
+    padding: 5px;
+    outline: none;
+    border-radius: 3px;
+}
+
+.InputsLabels_dificulty{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.InputsLabels_dificulty h4{
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    padding: 2px 8px;
+    margin-left: 5px;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.InputsLabels__error{
+    text-align: start;
+    width: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: red;
+    margin: 5px;
+}
+
+
+.ContainInputs input[type="button"]{
+    font-size: 1.5rem;
+    padding: 5px 20px;
+    align-self: flex-end;
+    border-radius: 5px;
+    cursor: pointer;
+    background: transparent;
+    transition: all 1s;
+    background-color: white;
+    color: green;
+    font-weight: 600;
+}
+
+.ContainInputs input[type="button"]:hover{
+    background-color: green;
+    color: white;
+    transform: scale(1.1);
+}
+
+
+.InputsLabels select{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-family: verdana;
+    
+}
+
+
+@media screen and (max-width: 968px){
+    
+    .Container{
+        width: 100%;
+        margin-bottom: 20rem;
+        height: 700px;
+    }
+    
+    .Sucess{
+        width: 100%;
+        height: 400px;
+    }
+
+    .form{
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .ContainInputs{
+        width: 90%;
+    }
+
+
+    .InputsLabels{
+        width: 100%;
+    }
+}

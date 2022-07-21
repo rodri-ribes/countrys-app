@@ -1,0 +1,40 @@
+.Container{
+    width: 100%;
+    height: auto;
+    min-height: 570px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.Container_Nav{
+    width: 100%;
+    height: 100px;
+}
+
+.Container_Countrys{
+    width: 100%;
+    height: auto
+}
+
+@media screen and (max-width: 968px){
+    .Container{
+        width: 100%;
+        margin-bottom: 10rem;
+        height: auto;
+        min-height: 820px;
+    }
+
+    .Container_Nav{
+        width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .Container_Countrys{
+        width: 100%;
+        height: auto;
+    }
+}

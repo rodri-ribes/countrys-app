@@ -1,0 +1,38 @@
+.Container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+}
+
+.Container__btns{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container__btns button{
+    font-size: 1.3rem;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.Container__btns button:hover{
+    transform: translateY(-2px);
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width: 968px){
+    .Container{
+        width: 100%;
+        height: 100%;
+    }
+
+    .ContainerNotFound{
+        height: 400px;
+        width: 100%;
+    }
+}
