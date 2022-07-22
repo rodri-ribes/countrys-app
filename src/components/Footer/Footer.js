@@ -17,7 +17,7 @@ function Footer() {
                             <a href="https://github.com/rodri-ribes" target="_blank" rel="noreferrer">
                                 <FaGithub className={style.Icono} />
                             </a>
-                            <a href="https://www.linkedin.com/in/rodrigo-ribes-9793b5207/" target="_blank" rel="noreferrer">
+                            <a href="https://www.linkedin.com/in/rodrigo-ribes/" target="_blank" rel="noreferrer">
                                 <FaLinkedin className={style.Icono} />
                             </a>
                             <a href="https://rodrigoribes.netlify.app/" target="_blank" rel="noreferrer">

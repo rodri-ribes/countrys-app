@@ -2,9 +2,11 @@
 
 .FooterContainer{
     width: 100%;
-    height: 16vh;
-    background-color: #171523;
+    height: 13.14vh;
+    background-color: black;
     position: relative;
+    top: 0;
+    margin-top: 50px;
 }
 
 .Container{
@@ -26,7 +28,7 @@
 .Terms p{
     color: white;
     font-family: "Ubuntu";
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 0 10px
 }
 
@@ -43,6 +45,7 @@
     color: white;
     font-size: 2.5rem;
     margin: 0 10px;
+    transition: all 1s ease-in-out 1s;
 }
 
 .Icono:hover{

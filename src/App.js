@@ -15,18 +15,16 @@ function App() {
   return (
     <>
       <NavBar />
-      <div className="body">
-        <div className="container">
-          <Route exact path='/' component={Inicial} />
-          <Route exact path='/countrys' component={Principal} />
-          <Route exact path='/countrys/:name' component={CountryDetail} />
-          <Route exact path='/activities' component={Activities} />
-          <Route exact path='/activities/add' component={AddActivity} />
-          <Route exact path='/activities/modify' component={ModifyActivity} />
-          <Route exact path='/activities/delete' component={DeleteActivity} />
-        </div>
-        <Footer />
+      <div className="container">
+        <Route exact path='/' component={Inicial} />
+        <Route exact path='/countrys' component={Principal} />
+        <Route exact path='/countrys/:name' component={CountryDetail} />
+        <Route exact path='/activities' component={Activities} />
+        <Route exact path='/activities/add' component={AddActivity} />
+        <Route exact path='/activities/modify' component={ModifyActivity} />
+        <Route exact path='/activities/delete' component={DeleteActivity} />
       </div>
+      <Footer />
     </>
   );
 }

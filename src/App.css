@@ -1,9 +1,5 @@
 
-.body{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: calc(100vh - 13vh - 14vh);
+body{
     background-image: url("./components/img/fondo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,14 +12,7 @@
 }
 
 @media screen and (max-width: 968px){
-
-    .body{
-        width: 100%;
-    }
     .container{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        min-height: calc(100vh - 13vh);
+        min-height: calc(100vh - 13.14vh - 50px);
     }
 }
