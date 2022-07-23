@@ -16,23 +16,15 @@ export default function CountryDetail(props) {
 
   let actividades = false;
 
-  let style;
 
   if (country.length !== 0) {
     if (country[0].activities.length !== 0) {
       actividades = country[0].activities;
-      style = {
-        height: "auto"
-      }
-    } else {
-      style = {
-        height: "20rem"
-      }
     }
   }
 
   return (
-    <div className={style.Container} style={style}>
+    <div className={`${actividades ? style.Container : style.ContainerSinAct}`}>
       {country[0] ? (
         <div className={style.Container__info}>
           <img src={country[0].flag} alt={country[0].name} className={style.Container__info_img} />
