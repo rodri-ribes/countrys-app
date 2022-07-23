@@ -4,7 +4,9 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+    min-height: 15rem;
     height: auto;
+    
 }
 
 .Container__info{
