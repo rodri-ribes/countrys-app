@@ -12,7 +12,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 1000px;
+    height: 700px;
 }
 
 .Container__info{
@@ -21,6 +21,16 @@
     border-radius: 10px;
     width: 800px;
     height: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container__infoSinAct{
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    width: 800px;
+    height: auto;
     justify-content: center;
     align-items: center;
 }

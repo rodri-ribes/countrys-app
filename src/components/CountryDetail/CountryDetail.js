@@ -26,7 +26,7 @@ export default function CountryDetail(props) {
   return (
     <div className={`${actividades ? style.Container : style.ContainerSinAct}`}>
       {country[0] ? (
-        <div className={style.Container__info}>
+        <div className={`${actividades ? style.Container__info : style.Container__infoSinAct}`}>
           <img src={country[0].flag} alt={country[0].name} className={style.Container__info_img} />
           <div className={style.Container__info_datos}>
             <h1>{country[0].name}</h1>
