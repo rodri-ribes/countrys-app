@@ -5,6 +5,7 @@ import { CardCountry } from "../CardCountry/CardCountry";
 import NotFound from '../functions/NotFound/NotFound';
 import { useEffect, useState } from 'react';
 import Spinner from '../../Spinner/Spinner'
+import { Paginacion } from './Pagination/Paginacion';
 
 
 export default function Countrys() {
@@ -12,42 +13,15 @@ export default function Countrys() {
 
   let error = useSelector(state => state.error);
 
-  const [paginado, setPaginado] = useState(0);
+  const [pagina, setPagina] = useState(1);
 
 
-  let nextPage = () => {
-    if (countrysAll.length <= paginado + 10) {
-      setPaginado(paginado);
-    } else setPaginado(paginado + 10);
-  };
 
-  let prevPage = () => {
-    if (paginado < 9) {
-      setPaginado(0);
-    } else {
-      setPaginado(paginado - 10);
-    }
-  };
+  const porPagina = 10;
 
-  const firstPage = () => {
-    setPaginado(0);
-  };
+  const ceil = countrysAll.length / porPagina;
 
-  const lastPage = () => {
-    setPaginado(countrysAll.length - 10);
-  };
-
-  useEffect(() => {
-    firstPage()
-  }, [countrysAll]);
-
-  let filteredC;
-
-  if (paginado === 0) {
-    filteredC = countrysAll.slice(paginado, paginado + 9);
-  } else {
-    filteredC = countrysAll.slice(paginado, paginado + 10);
-  }
+  const maximo = Math.ceil(ceil)
 
   return (
     <>
@@ -59,7 +33,10 @@ export default function Countrys() {
                 <NotFound text="Country Not Found" />
               </div>
               :
-              filteredC.map(country => {
+              countrysAll.slice(
+                (pagina - 1) * porPagina,
+                (pagina - 1) * porPagina + porPagina
+              ).map(country => {
                 return (
                   <CardCountry
                     img={country.flag}
@@ -75,10 +52,11 @@ export default function Countrys() {
             null
             :
             <div className={style.Container__btns}>
-              <button onClick={firstPage}>{'<<'}</button>
-              <button onClick={prevPage}>{'<'}</button>
-              <button onClick={nextPage}>{'>'}</button>
-              <button onClick={lastPage}>{'>>'}</button>
+              <Paginacion
+                pagina={pagina}
+                setPagina={setPagina}
+                maximo={maximo}
+              />
             </div>
           }
         </>

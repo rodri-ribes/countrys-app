@@ -10,12 +10,13 @@ require('./db.js');
 const server = express();
 
 server.name = 'API';
-server.use(cors());
+
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(cookieParser());
 server.use(morgan('dev'));
+
 
 
 server.use('/', routes);
