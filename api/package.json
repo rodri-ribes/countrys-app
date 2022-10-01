@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "author": "Rodrigo",
@@ -23,6 +24,7 @@
     "morgan": "^1.10.0",
     "ng": "^0.0.0",
     "pg": "^8.5.1",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
