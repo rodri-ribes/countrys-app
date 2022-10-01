@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
+const pg = require('ng');
 
 const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_LINK,
@@ -8,13 +9,7 @@ const {
 
 const sequelize = new Sequelize(DB_LINK, {
   logging: false,
-  native: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false
-    }
-  }
+  dialectModule: pg
 });
 
 
