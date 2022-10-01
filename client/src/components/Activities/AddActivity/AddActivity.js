@@ -47,7 +47,7 @@ export default function AddActivity() {
         } else {
             setVisible(true);
             try {
-                await axios.post("https://countrys-app.herokuapp.com/activities", {
+                await axios.post(`${process.env.REACT_APP_API}/activities`, {
                     input
                 })
             } catch (error) {

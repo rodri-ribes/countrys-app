@@ -61,7 +61,7 @@ export default function ModifyActivity() {
         } else {
             setVisible(true);
             try {
-                await axios.put("https://countrys-app.herokuapp.com/activities", {
+                await axios.put(`${process.env.REACT_APP_API}/activities`, {
                     input
                 })
             } catch (error) {

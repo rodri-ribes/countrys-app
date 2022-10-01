@@ -19,14 +19,14 @@ import {
 
 export const getCountrys = () => async (dispatch) => {
   try {
-    const Countrys = await axios.get('https://countrys-app.herokuapp.com/countries');
+    const Countrys = await axios.get(`${process.env.REACT_APP_API}`);
     dispatch({ type: GET_COUNTRYS, payload: Countrys.data })
   } catch (error) {
     console.log(error)
   }
 }
 export const getCountry = (value) => async (dispatch) => {
-  const Country = await axios.get(`https://countrys-app.herokuapp.com/countries?name=${value}`);
+  const Country = await axios.get(`${process.env.REACT_APP_API}/countries?name=${value}`);
   dispatch({ type: GET_COUNTRY, payload: Country.data })
 
 };
@@ -71,7 +71,7 @@ export const errorFalse = () => {
 };
 
 export const search = (value) => async (dispatch) => {
-  const Countrys = await axios.get(`https://countrys-app.herokuapp.com/countries?name=${value}`);
+  const Countrys = await axios.get(`${process.env.REACT_APP_API}/countries?name=${value}`);
   if (!Countrys.data.message) {
     dispatch({ type: SEARCH, payload: Countrys.data })
   } else {
@@ -81,7 +81,7 @@ export const search = (value) => async (dispatch) => {
 
 export const getActivities = () => async (dispatch) => {
   try {
-    const activitys = await axios.get('https://countrys-app.herokuapp.com/activities');
+    const activitys = await axios.get(`${process.env.REACT_APP_API}/activities`);
     dispatch({ type: GET_ACTIVITIES, payload: activitys.data })
   } catch (error) {
     console.log(error)

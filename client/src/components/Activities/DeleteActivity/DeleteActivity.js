@@ -38,7 +38,7 @@ export default function DeleteActivity() {
             setError(false)
             setVisible(true);
             try {
-                await axios.delete(`https://countrys-app.herokuapp.com/activities/${input}`)
+                await axios.delete(`${process.env.REACT_APP_API}/activities/${input}`)
             } catch (error) {
                 console.log(error);
             }
