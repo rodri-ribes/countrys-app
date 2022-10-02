@@ -29,3 +29,12 @@
     border: 1px solid #242424;
     border-radius: 3px;
 }
+
+.container p{
+    height: 25px;
+    width: 50px;
+    text-align: center;
+    border: 1px solid #242424;
+    border-radius: 3px;
+    background-color: white;
+}

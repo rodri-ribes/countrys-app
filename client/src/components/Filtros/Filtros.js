@@ -2,20 +2,20 @@ import style from "./filtros.module.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  orderAlpha,
-  orderAlphaRev,
-  orderPop,
-  orderPopRev,
+  orderAlphaAction,
+  orderAlphaRevAction,
+  orderPopAction,
+  orderPopRevAction,
   getCountrys,
-  orderCont,
-  search,
-  errorFalse,
-  filterActivities,
-} from "../../actions/index.js";
+  orderContinentAction,
+  searchAction,
+  errorFalseAction,
+  filterActivitiesAction,
+} from "../../redux/features/user/userSlice";
 
-export default function Nav() {
+export default function Filtros({ setsearchTerm }) {
   let dispatch = useDispatch();
-  let activities = useSelector((state) => state.activities);
+  let activities = useSelector((state) => state.user.activities);
 
   const [sort, setOrder] = useState("");
   const [region, setRegion] = useState("");
@@ -24,45 +24,47 @@ export default function Nav() {
 
   useEffect(() => {
     if (inputSearch.length === 0) {
-      dispatch(errorFalse());
+      dispatch(errorFalseAction());
       dispatch(getCountrys());
     }
   }, [inputSearch, dispatch]);
 
   useEffect(() => {
+
     if (region) {
       dispatch(getCountrys());
       if (region !== "all") {
         setTimeout(() => {
-          dispatch(orderCont(region));
-        }, 500);
+          dispatch(orderContinentAction(region));
+        }, 1000);
       }
     }
+
   }, [region, dispatch]);
 
   useEffect(() => {
+
     if (sort === "all") dispatch(getCountrys());
-    else if (sort === "a-z") dispatch(orderAlpha());
-    else if (sort === "z-a") dispatch(orderAlphaRev());
-    else if (sort === "↑ population") dispatch(orderPopRev());
-    else if (sort === "↓ population") dispatch(orderPop());
+    else if (sort === "a-z") dispatch(orderAlphaAction());
+    else if (sort === "z-a") dispatch(orderAlphaRevAction());
+    else if (sort === "↑ population") dispatch(orderPopRevAction());
+    else if (sort === "↓ population") dispatch(orderPopAction());
+
   }, [sort, dispatch]);
 
   useEffect(() => {
+
     if (activity) {
       dispatch(getCountrys());
       if (activity !== "all") {
         setTimeout(() => {
-          dispatch(filterActivities(activity));
-        }, 500);
+          dispatch(filterActivitiesAction(activity));
+        }, 1000);
       }
     }
+
   }, [activity, dispatch]);
 
-  const handleSubmit = () => {
-    let str = inputSearch.charAt(0).toUpperCase() + inputSearch.slice(1);
-    dispatch(search(str));
-  };
 
   return (
     <div className={style.Container}>
@@ -89,7 +91,7 @@ export default function Nav() {
       <div className={style.Container__Filter}>
         <select onChange={(e) => setActivity(e.target.value)}>
           <option value="all">Actividad</option>
-          {activities.map((a) => {
+          {activities && activities.map((a) => {
             return (
               <option value={a.name} key={a.id}>{a.name}</option>
             );
@@ -99,13 +101,13 @@ export default function Nav() {
       <div className={style.Container__Search}>
         <div>
           <input
-            onChange={(e) => setinputSearch(e.target.value)}
+            onChange={(e) => setsearchTerm(e.target.value)}
             name="search"
             type="text"
           />
-          <button onClick={() => handleSubmit()}>
+          {/* <button onClick={() => handleSubmit()}>
             <img src="https://svgsilh.com/svg_v2/1093183.svg" alt="lupa" />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

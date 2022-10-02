@@ -2,10 +2,11 @@ import style from "./deleteActivity.module.css"
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from "react"
-import { getActivities } from "../../../actions";
+import { getActivitiesAction } from "../../../redux/features/user/userSlice";
 import NotFound from '../../functions/NotFound/NotFound';
 import Successful from "../../functions/Successful/Successful";
 
+const { REACT_APP_API } = process.env
 
 export default function DeleteActivity() {
 
@@ -13,10 +14,10 @@ export default function DeleteActivity() {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getActivities())
+        dispatch(getActivitiesAction())
     }, [dispatch])
 
-    let activities = useSelector(state => state.activities)
+    let activities = useSelector(state => state.user.activities)
 
     let list = false
 
@@ -38,14 +39,14 @@ export default function DeleteActivity() {
             setError(false)
             setVisible(true);
             try {
-                await axios.delete(`${process.env.REACT_APP_API}/activities/${input}`)
+                await axios.delete(`${REACT_APP_API}/activities/${input}`)
             } catch (error) {
                 console.log(error);
             }
             setTimeout(() => {
                 setVisible(false);
                 setInput(0)
-                dispatch(getActivities())
+                dispatch(getActivitiesAction())
             }, 2000);
         }
     }

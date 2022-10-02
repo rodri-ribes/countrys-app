@@ -2,7 +2,7 @@ import style from './activities.module.css'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react';
-import { getActivities, getCountrys } from '../../actions';
+import { getActivitiesAction, getCountrys } from '../../redux/features/user/userSlice';
 
 
 export default function Activities() {
@@ -10,7 +10,7 @@ export default function Activities() {
     let dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getActivities())
+        dispatch(getActivitiesAction())
     }, [dispatch]);
 
     useEffect(() => {

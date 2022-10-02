@@ -3,9 +3,12 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from "react"
 import validate from "../../functions/validate";
-import { getActivities } from "../../../actions";
+import { getActivitiesAction } from "../../../redux/features/user/userSlice";
 import NotFound from '../../functions/NotFound/NotFound';
 import Successful from "../../functions/Successful/Successful";
+
+
+const { REACT_APP_API } = process.env
 
 
 export default function ModifyActivity() {
@@ -14,10 +17,10 @@ export default function ModifyActivity() {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getActivities())
+        dispatch(getActivitiesAction())
     }, [dispatch])
 
-    let activities = useSelector(state => state.activities)
+    let activities = useSelector(state => state.user.activities)
 
 
     let list = false
@@ -61,7 +64,7 @@ export default function ModifyActivity() {
         } else {
             setVisible(true);
             try {
-                await axios.put(`${process.env.REACT_APP_API}/activities`, {
+                await axios.put(`${REACT_APP_API}/activities`, {
                     input
                 })
             } catch (error) {
@@ -71,7 +74,7 @@ export default function ModifyActivity() {
                 setVisible(false);
                 setView(true);
                 setInput(activity)
-                dispatch(getActivities())
+                dispatch(getActivitiesAction())
             }, 2000);
         }
     }

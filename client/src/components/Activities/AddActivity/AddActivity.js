@@ -4,8 +4,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect } from "react"
 import validate from "../../functions/validate";
 import Successful from "../../functions/Successful/Successful";
-import { getCountrys } from "../../../actions";
+import { getCountrys } from "../../../redux/features/user/userSlice";
 
+
+const { REACT_APP_API } = process.env
 
 export default function AddActivity() {
 
@@ -15,7 +17,7 @@ export default function AddActivity() {
         dispatch(getCountrys())
     }, [dispatch]);
 
-    let countrys = useSelector(state => state.countrys)
+    let countrys = useSelector(state => state.user.countrys)
     let activity = {
         name: "",
         dificulty: 1,
@@ -47,7 +49,7 @@ export default function AddActivity() {
         } else {
             setVisible(true);
             try {
-                await axios.post(`${process.env.REACT_APP_API}/activities`, {
+                await axios.post(`${REACT_APP_API}/activities`, {
                     input
                 })
             } catch (error) {

@@ -8,13 +8,23 @@ import Spinner from '../../Spinner/Spinner'
 import { Paginacion } from './Pagination/Paginacion';
 
 
-export default function Countrys() {
-  let countrysAll = useSelector(state => state.countrys);
+export default function Countrys({ searchTerm }) {
 
-  let error = useSelector(state => state.error);
+  let countrysAll = useSelector(state => state.user.countrys);
+
+
+  countrysAll && console.log(countrysAll)
+
+  let error = useSelector(state => state.user.error);
 
   const [pagina, setPagina] = useState(1);
 
+
+  function searchFilter(term) {
+    return function (x) {
+      return x.name.toLowerCase().includes(term.toLowerCase()) || !term
+    }
+  }
 
 
   const porPagina = 10;
@@ -25,7 +35,8 @@ export default function Countrys() {
 
   return (
     <>
-      {countrysAll ?
+
+      {countrysAll.length > 0 ?
         <>
           <div className={style.Container}>
             {error ?
@@ -33,16 +44,17 @@ export default function Countrys() {
                 <NotFound text="Country Not Found" />
               </div>
               :
-              countrysAll.slice(
+              countrysAll && countrysAll.slice(
                 (pagina - 1) * porPagina,
                 (pagina - 1) * porPagina + porPagina
-              ).map(country => {
+              ).filter(searchFilter(searchTerm)).map(country => {
                 return (
                   <CardCountry
                     img={country.flag}
                     name={country.name}
                     continent={country.continent}
                     key={country.id}
+                    id={country.id}
                   />
                 )
               })
@@ -52,11 +64,13 @@ export default function Countrys() {
             null
             :
             <div className={style.Container__btns}>
-              <Paginacion
-                pagina={pagina}
-                setPagina={setPagina}
-                maximo={maximo}
-              />
+              {!searchTerm &&
+                <Paginacion
+                  pagina={pagina}
+                  setPagina={setPagina}
+                  maximo={maximo}
+                />
+              }
             </div>
           }
         </>

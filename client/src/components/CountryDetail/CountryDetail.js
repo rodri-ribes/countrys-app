@@ -2,47 +2,41 @@ import style from "./countrydetail.module.css";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountry } from "../../actions";
+import { getCountry } from "../../redux/features/user/userSlice";
+import Spinner from "../../Spinner/Spinner";
 
 export default function CountryDetail(props) {
   const name = props.match.params.name;
   let dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("name", name)
     dispatch(getCountry(name));
   }, [dispatch, name]);
 
-  let country = useSelector((state) => state.country);
+  let country = useSelector((state) => state.user.country);
 
-  let actividades = false;
-
-
-  if (country.length !== 0) {
-    if (country[0].activities.length !== 0) {
-      actividades = country[0].activities;
-    }
-  }
 
   return (
-    <div className={`${actividades ? style.Container : style.ContainerSinAct}`}>
-      {country[0] ? (
-        <div className={`${actividades ? style.Container__info : style.Container__infoSinAct}`}>
-          <img src={country[0].flag} alt={country[0].name} className={style.Container__info_img} />
+    <div className={`${country?.activities?.length > 0 ? style.Container : style.ContainerSinAct}`}>
+      {country ?
+        <div className={`${country?.activities?.length > 0 ? style.Container__info : style.Container__infoSinAct}`}>
+          <img src={country?.flag} alt={country?.name} className={style.Container__info_img} />
           <div className={style.Container__info_datos}>
-            <h1>{country[0].name}</h1>
-            <p> Continent: <b>{country[0].continent}</b> </p>
-            <p> Capital: <b>{country[0].capital}</b> </p>
-            <p> Area: <b>{country[0].area}</b> </p>
-            <p> Subregion: <b>{country[0].subregion}</b> </p>
-            <p> Population: <b>{country[0].population}</b> </p>
+            <h1>{country?.name}</h1>
+            <p> Continent: <b>{country?.continent}</b> </p>
+            <p> Capital: <b>{country?.capital}</b> </p>
+            <p> Area: <b>{country?.area}</b> </p>
+            <p> Subregion: <b>{country?.subregion}</b> </p>
+            <p> Population: <b>{country?.population}</b> </p>
           </div>
         </div>
-      ) : (
-        <h3>cargando</h3>
-      )}
-      {actividades ? (
+        :
+        <Spinner />
+      }
+      {country?.activities?.length > 0 ?
         <div className={style.Actividades}>
-          <h1>Activitys in {country[0].name}</h1>
+          <h1>Activitys in {country.name}</h1>
           <table className={style.Actividades_table}>
             <tbody>
               <tr className={style.Actividades_table_fila}>
@@ -52,7 +46,7 @@ export default function CountryDetail(props) {
                 <th>Season</th>
               </tr>
             </tbody>
-            {actividades.map((c) => {
+            {country?.activities.map((c) => {
               return (
                 <tbody key={c.name + c.country}>
                   <tr className={style.Actividades_table_fila}>
@@ -66,7 +60,7 @@ export default function CountryDetail(props) {
             })}
           </table>
         </div>
-      ) : null}
+        : null}
     </div>
   );
 }
