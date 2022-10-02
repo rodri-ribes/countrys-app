@@ -44,10 +44,10 @@ export default function Countrys({ searchTerm }) {
                 <NotFound text="Country Not Found" />
               </div>
               :
-              countrysAll && countrysAll.slice(
+              countrysAll && countrysAll.filter(searchFilter(searchTerm)).slice(
                 (pagina - 1) * porPagina,
                 (pagina - 1) * porPagina + porPagina
-              ).filter(searchFilter(searchTerm)).map(country => {
+              ).map(country => {
                 return (
                   <CardCountry
                     img={country.flag}
