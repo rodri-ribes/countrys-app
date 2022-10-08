@@ -12,7 +12,7 @@ El desarrollo de esta aplicacion tiene como finalidad el añadir actividades tur
 
 ##Screenshot
 ***
-![Home](client/public/img/home.jpg)
+![Home](client/public/img/home.JPG)
 ![Content Detail](client/public/img/detailCountry.jpg)
 ![Options](client/public/img/options.jpg)
 ![Add Activity](client/public/img/addActivity.jpg)
