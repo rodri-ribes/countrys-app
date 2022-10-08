@@ -13,9 +13,9 @@ El desarrollo de esta aplicacion tiene como finalidad el añadir actividades tur
 ##Screenshot
 ***
 ![Home](client/public/img/home.JPG)
-![Content Detail](client/public/img/detailCountry.jpg)
-![Options](client/public/img/options.jpg)
-![Add Activity](client/public/img/addActivity.jpg)
+![Content Detail](client/public/img/detailCountry.JPG)
+![Options](client/public/img/options.JPG)
+![Add Activity](client/public/img/addActivity.JPG)
 ***
 
 ## Technologies
