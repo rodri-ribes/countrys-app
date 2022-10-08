@@ -20,6 +20,7 @@ A list of technologies used within the project:
 * React-Redux: Version 7.2.9
 * Express: Version 4.17.1
 * Sequelize: Version 6.3.5
+* PostgreSQL
 
 ## Installation
 ***
