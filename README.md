@@ -10,7 +10,7 @@ The development of this application has the purpose of adding tourist activities
 
 El desarrollo de esta aplicacion tiene como finalidad el añadir actividades turisticas a cada pais, este proyecto fue desarrollado en el bootcamp SoyHenry
 
-## Screenshot
+#### Screenshot
 ***
 ![Home](client/public/img/home.JPG)
 ![Content Detail](client/public/img/detailCountry.JPG)
