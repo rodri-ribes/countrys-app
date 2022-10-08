@@ -2,6 +2,7 @@
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
+3. [Screenshots](#Screenshots)
 
 ### General Info
 ***
@@ -9,14 +10,6 @@
 The development of this application has the purpose of adding tourist activities to each country, this project was developed in the SoyHenry bootcamp
 
 El desarrollo de esta aplicacion tiene como finalidad el añadir actividades turisticas a cada pais, este proyecto fue desarrollado en el bootcamp SoyHenry
-
-#### Screenshots
-***
-![Home](client/public/img/home.JPG)
-![Content Detail](client/public/img/detailCountry.JPG)
-![Options](client/public/img/options.JPG)
-![Add Activity](client/public/img/addActivity.JPG)
-***
 
 ## Technologies
 ***
@@ -42,3 +35,10 @@ $ git clone https://github.com/rodri-ribes/countrys-app.git
     $ npm install
     $ npm run dev
 ```
+### Screenshots
+***
+![Home](client/public/img/home.JPG)
+![Content Detail](client/public/img/detailCountry.JPG)
+![Options](client/public/img/options.JPG)
+![Add Activity](client/public/img/addActivity.JPG)
+***
