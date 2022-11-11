@@ -8,9 +8,9 @@
 ### General Info
 ***
 
-The development of this application has the purpose of adding tourist activities to each country, this project was developed in the SoyHenry bootcamp
+The application is a SPA (single page application), you can see information about your favorite games, movies and series. the api www.omdbapi.com was used
 
-El desarrollo de esta aplicacion tiene como finalidad el añadir actividades turisticas a cada pais, este proyecto fue desarrollado en el bootcamp SoyHenry
+La aplicación es una SPA (aplicación de una sola página), puedes ver información de tus juegos, películas y series favoritas. se utilizó la api www.omdbapi.com
 
 ## Technologies
 ***
@@ -19,28 +19,18 @@ A list of technologies used within the project:
 * React: Version 18.2.0
 * Redux: Version 4.0.5
 * React-Redux: Version 7.2.9
-* Express: Version 4.17.1
-* Sequelize: Version 6.3.5
-* PostgreSQL
 
 ## Installation
 ***
 A little intro about the installation. 
 ```
-$ git clone https://github.com/rodri-ribes/countrys-app.git
+$ git clone https://github.com/rodri-ribes/search-app.git
 
-./client
-    $ npm install
-    $ npm start
-    
-./api
-    $ npm install
-    $ npm run dev
+$ npm install
+$ npm start
+  
 ```
 ### Screenshots
 ***
-![Home](client/public/img/home.JPG)
-![Content Detail](client/public/img/detailCountry.JPG)
-![Options](client/public/img/options.JPG)
-![Add Activity](client/public/img/addActivity.JPG)
+
 ***
